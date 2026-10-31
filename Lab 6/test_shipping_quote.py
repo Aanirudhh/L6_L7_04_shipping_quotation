@@ -157,3 +157,20 @@ def test_monitor_leak_detected():
 def test_monitor_stable():
     logs = [[15.0, 16.0, 14.5]]
     assert monitor_container_pressures(logs) == "STABLE"
+
+def test_hazmat_not_fragile_heavy_weight():
+    shipments = [
+        {
+            "manifest_approved": True,
+            "mode": "ground",
+            "is_fragile": False,
+            "packages": [{"weight_kg": 40, "is_hazmat": True}]
+        }
+    ]
+    result = process_shipments(shipments, 20.0)
+    assert result["status"] == "CLEARED"
+
+
+def test_monitor_streak_resets_on_stable_reading():
+    logs = [[13.0, 15.0, 13.5]]
+    assert monitor_container_pressures(logs) == "STABLE"

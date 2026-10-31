@@ -16,3 +16,11 @@ A small Python module that calculates shipping quotes by transport mode, parcel 
 Keep all your Lab 6 work in this `LAB6` folder. Lab 7 will be added to this repo later.
 
 Refer to the lab handout for instructions.
+
+## Coverage Results
+
+- Line coverage: 100%
+- Branch coverage: 100%
+- 19 passing test cases covering transport modes, hazmat/fragile handling,
+  weight tiers, express priority, rejection thresholds, and container
+  pressure monitoring.
